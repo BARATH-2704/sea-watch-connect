@@ -2,39 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Coastal Sentinel Design System - Ocean-inspired colors and gradients */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Ocean color palette */
+    --ocean-deep: 220 58% 18%;        /* Deep ocean blue */
+    --ocean-mid: 205 77% 34%;         /* Mid ocean blue */  
+    --ocean-light: 194 74% 56%;       /* Light ocean blue */
+    --ocean-foam: 180 46% 85%;        /* Ocean foam white-blue */
+    --coral-warning: 14 91% 43%;      /* Coral red for emergencies */
+    --seaweed-success: 142 71% 45%;   /* Seaweed green */
+    --sand-neutral: 45 25% 80%;       /* Sandy beige */
+    --storm-dark: 225 39% 21%;        /* Storm cloud dark */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Semantic color mapping */
+    --background: 194 100% 97%;       /* Very light ocean */
+    --foreground: 220 58% 18%;        /* Deep ocean text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: 180 46% 95%;              /* Light ocean foam card */
+    --card-foreground: var(--foreground);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 180 46% 98%;           /* Very light popover */
+    --popover-foreground: var(--foreground);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--ocean-mid);      /* Mid ocean blue primary */
+    --primary-foreground: 0 0% 100%; /* White on primary */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: var(--ocean-light);   /* Light ocean secondary */
+    --secondary-foreground: 0 0% 100%; /* White on secondary */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: var(--ocean-foam);       /* Ocean foam muted */
+    --muted-foreground: var(--ocean-deep); /* Dark ocean on muted */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: var(--seaweed-success);  /* Seaweed accent */
+    --accent-foreground: 0 0% 100%;   /* White on accent */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: var(--coral-warning); /* Coral red destructive */
+    --destructive-foreground: 0 0% 100%; /* White on destructive */
+
+    --border: 194 74% 88%;            /* Light ocean border */
+    --input: 194 74% 92%;             /* Very light input */
+    --ring: var(--ocean-mid);         /* Ocean mid ring */
+
+    /* Custom gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--ocean-deep)), hsl(var(--ocean-mid)), hsl(var(--ocean-light)));
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--coral-warning)), hsl(14 91% 60%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--seaweed-success)), hsl(142 71% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--ocean-mid)) 0%, hsl(var(--ocean-light)) 50%, hsl(var(--ocean-foam)) 100%);
+
+    /* Hazard type colors */
+    --hazard-storm: 230 70% 45%;      /* Storm blue */
+    --hazard-oil: 0 0% 15%;           /* Oil black */  
+    --hazard-debris: 35 80% 50%;      /* Debris orange */
+    --hazard-algae: 90 60% 35%;       /* Algae green */
+    --hazard-animal: 300 65% 55%;     /* Animal purple */
+    --hazard-water: 45 70% 45%;       /* Water quality yellow */
+
+    /* Shadows and effects */
+    --shadow-ocean: 0 10px 30px -10px hsl(var(--ocean-mid) / 0.3);
+    --shadow-emergency: 0 0 40px hsl(var(--coral-warning) / 0.4);
+    --glow-critical: 0 0 20px hsl(var(--coral-warning) / 0.6);
 
     --radius: 0.5rem;
 
@@ -56,33 +84,37 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark ocean theme */
+    --background: var(--ocean-deep);  /* Deep ocean background */
+    --foreground: var(--ocean-foam);  /* Light foam text */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 58% 12%;              /* Darker ocean card */
+    --card-foreground: var(--ocean-foam);
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 58% 10%;           /* Very dark popover */
+    --popover-foreground: var(--ocean-foam);
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--ocean-light);    /* Light ocean primary in dark */
+    --primary-foreground: var(--ocean-deep); /* Dark text on light */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 58% 25%;         /* Mid-dark secondary */
+    --secondary-foreground: var(--ocean-foam);
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 58% 15%;             /* Dark muted */
+    --muted-foreground: 194 74% 75%;  /* Light muted text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: var(--seaweed-success);  /* Keep accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: var(--coral-warning); /* Keep coral red */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 58% 25%;            /* Dark border */
+    --input: 220 58% 20%;             /* Dark input */
+    --ring: var(--ocean-light);       /* Light ring */
+
+    /* Dark theme gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--ocean-deep)) 0%, hsl(220 58% 25%) 50%, hsl(var(--ocean-mid)) 100%);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +132,48 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+
+  /* Leaflet map styles */
+  .leaflet-container {
+    @apply w-full h-full bg-primary/5;
+  }
+
+  /* Custom animations */
+  @keyframes ocean-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--ocean-mid) / 0.4); 
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--ocean-mid) / 0.8); 
+    }
+  }
+
+  @keyframes emergency-blink {
+    0%, 50% { 
+      box-shadow: var(--shadow-emergency);
+      background-color: hsl(var(--coral-warning));
+    }
+    51%, 100% { 
+      box-shadow: none;
+      background-color: hsl(var(--coral-warning) / 0.8);
+    }
+  }
+
+  .animate-ocean-pulse {
+    animation: ocean-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-emergency-blink {
+    animation: emergency-blink 1s ease-in-out infinite;
+  }
+
+  /* Hazard type markers */
+  .hazard-storm { @apply bg-[hsl(var(--hazard-storm))]; }
+  .hazard-oil { @apply bg-[hsl(var(--hazard-oil))]; }
+  .hazard-debris { @apply bg-[hsl(var(--hazard-debris))]; }
+  .hazard-algae { @apply bg-[hsl(var(--hazard-algae))]; }
+  .hazard-animal { @apply bg-[hsl(var(--hazard-animal))]; }
+  .hazard-water { @apply bg-[hsl(var(--hazard-water))]; }
 }

@@ -19,6 +19,27 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // Ocean color palette
+        ocean: {
+          deep: "hsl(var(--ocean-deep))",
+          mid: "hsl(var(--ocean-mid))", 
+          light: "hsl(var(--ocean-light))",
+          foam: "hsl(var(--ocean-foam))"
+        },
+        coral: "hsl(var(--coral-warning))",
+        seaweed: "hsl(var(--seaweed-success))",
+        
+        // Hazard colors
+        hazard: {
+          storm: "hsl(var(--hazard-storm))",
+          oil: "hsl(var(--hazard-oil))",
+          debris: "hsl(var(--hazard-debris))", 
+          algae: "hsl(var(--hazard-algae))",
+          animal: "hsl(var(--hazard-animal))",
+          water: "hsl(var(--hazard-water))"
+        },
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -57,6 +78,20 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        'gradient-ocean': 'var(--gradient-ocean)',
+        'gradient-emergency': 'var(--gradient-emergency)',
+        'gradient-success': 'var(--gradient-success)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
+      boxShadow: {
+        'ocean': 'var(--shadow-ocean)',
+        'emergency': 'var(--shadow-emergency)',
+      },
+      animation: {
+        'ocean-pulse': 'ocean-pulse 3s ease-in-out infinite',
+        'emergency-blink': 'emergency-blink 1s ease-in-out infinite',
       },
       borderRadius: {
         lg: "var(--radius)",
